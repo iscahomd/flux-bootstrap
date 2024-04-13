@@ -4,6 +4,21 @@ kind: Namespace
 metadata:
   name: ingress-nginx
 ---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ingress-nginx-controller-values
+  namespace: ingress-nginx
+data:
+  values.yaml: |-
+    controller:
+      annotations:
+        service.beta.kubernetes.io/azure-load-balancer-health-probe-request-path: "/healthz"
+      service:
+        type: "NodePort"
+    admissionWebhooks:
+      enabled: false
+---
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
@@ -30,11 +45,7 @@ spec:
         name: ingress-nginx
         namespace: flux-system
       interval: 30s
-  values:
-    controller:
-      annotations:
-        service.beta.kubernetes.io/azure-load-balancer-health-probe-request-path: "/healthz"
-      service:
-        type: "NodePort"
-    admissionWebhooks:
-      enabled: false
+  valuesFrom:
+    - kind: ConfigMap
+      name: ingress-nginx-controller-values
+      namespace: ingress-nginx
