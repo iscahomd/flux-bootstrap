@@ -20,6 +20,7 @@ metadata:
   namespace: ingress-nginx
 spec:
   interval: 30s
+  targetNamespace: ingress-nginx
   chart:
     spec:
       chart: ingress-nginx
