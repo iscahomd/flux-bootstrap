@@ -46,4 +46,3 @@ spec:
   valuesFrom:
     - kind: ConfigMap
       name: ingress-nginx-controller-values
-      namespace: ingress-nginx
