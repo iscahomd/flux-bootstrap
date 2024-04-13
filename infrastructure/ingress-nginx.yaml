@@ -32,6 +32,8 @@ spec:
       interval: 30s
   values:
     controller:
+      annotations: |-
+        service.beta.kubernetes.io/azure-load-balancer-health-probe-request-path: "/healthz"
       service:
         type: "NodePort"
     admissionWebhooks:
