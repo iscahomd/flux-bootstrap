@@ -32,6 +32,8 @@ spec:
         namespace: flux-system
       interval: 30s
   values:
+    image:
+      debug: true
     existingSecret: dev-bitnami-ghost-dev
     service:
       type: ClusterIP
