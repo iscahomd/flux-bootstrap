@@ -42,3 +42,5 @@ spec:
       user: "ghost_admin"
       database: "dev"
       existingSecret: mysql-password
+    persistence:
+      enabled: false
