@@ -32,6 +32,7 @@ spec:
         namespace: flux-system
       interval: 30s
   values:
+    existingSecret: dev-bitnami-ghost-dev
     service:
       type: ClusterIP
     mysql:
