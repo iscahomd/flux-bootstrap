@@ -36,3 +36,8 @@ spec:
       type: ClusterIP
     mysql:
       enabled: false
+    externalDatabase:
+      host: "iscahomd-ghost-db.mysql.database.azure.com"
+      user: "ghost_admin"
+      database: "dev"
+      existingSecret: mysql-password
