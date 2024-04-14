@@ -44,3 +44,7 @@ spec:
       existingSecret: mysql-password
     persistence:
       enabled: false
+    livenessProbe:
+      initialDelaySeconds: 600
+    readinessProbe:
+      initialDelaySeconds: 600
